@@ -30,15 +30,11 @@ jobs:
         working-directory: solar-garage-react
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: actions/configure-pages@v4
+      - name: Deploy to GitHub Pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
-
-      - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: solar-garage-react/dist
-
-      - name: Publish Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./solar-garage-react/dist
+          publish_branch: gh-pages
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
