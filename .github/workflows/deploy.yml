@@ -28,7 +28,7 @@ jobs:
 
       - name: Build project
         working-directory: solar-garage-react
-        run: npm run build
+        run: VITE_BASE_PATH=/Solar-Garage/ npm run build
 
       - name: Deploy to GitHub Pages branch
         uses: peaceiris/actions-gh-pages@v4
